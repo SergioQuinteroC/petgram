@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { App } from './App';
 
 ReactDOM.createRoot(document.getElementById('app')).render(
   <React.StrictMode>
-    <h1>Seguimos con el curso avanzado!</h1>
+    <App />
   </React.StrictMode>
 );
