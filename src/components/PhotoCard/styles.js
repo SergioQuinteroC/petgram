@@ -1,6 +1,13 @@
 import styled from 'styled-components';
 
+import { fadeIn } from '../../styles/animation';
+
+export const Article = styled.article`
+  min-height: 200px;
+`;
+
 export const ImgWrapper = styled.div`
+  ${fadeIn()};
   border-radius: 10px;
   display: block;
   height: 0;
@@ -24,6 +31,6 @@ export const Button = styled.button`
   align-items: center;
   padding-top: 8px;
   & svg {
-    margin-right: 4px
+    margin-right: 4px;
   }
 `;
