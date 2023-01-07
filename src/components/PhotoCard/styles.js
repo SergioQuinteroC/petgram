@@ -1,6 +1,7 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { fadeIn } from '../../styles/animation';
+import { skeletonStyle } from '../../styles/skeleton';
 
 export const Article = styled.article`
   min-height: 200px;
@@ -26,11 +27,21 @@ export const Img = styled.img`
   width: 100%;
 `;
 
-export const Button = styled.button`
+export const ImgSkeleton = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  ${(props) => css`
+    ${skeletonStyle(props.light)}
+  `}
+`;
+
+export const ButtonSkeleton = styled.div`
   display: flex;
   align-items: center;
   padding-top: 8px;
-  & svg {
-    margin-right: 4px;
-  }
+  ${(props) => css`
+    ${skeletonStyle(props.light)}
+  `}
 `;
