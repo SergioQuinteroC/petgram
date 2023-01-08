@@ -15,18 +15,25 @@ export const NotRegisteredUser = () => {
   const errorMsgRegister =
     registerError && 'El usuario ya existe o hay algún problema';
 
-  const errorMsgLogin = loginError && 'La contraseña es incorrecta o el usuario no existe';
+  const errorMsgLogin =
+    loginError && 'La contraseña es incorrecta o el usuario no existe';
 
   const onSubmitRegister = ({ email, password }) => {
     const input = { email, password };
     const variable = { input };
-    registerMutation({ variables: variable }).then(activateAuth);
+    registerMutation({ variables: variable }).then(({ data }) => {
+      const { signup } = data;
+      activateAuth(signup);
+    });
   };
 
   const onSubmitLogin = ({ email, password }) => {
     const input = { email, password };
     const variable = { input };
-    loginMutation({ variables: variable }).then(activateAuth);
+    loginMutation({ variables: variable }).then(({ data }) => {
+      const { login } = data;
+      activateAuth(login);
+    });
   };
 
   return (
