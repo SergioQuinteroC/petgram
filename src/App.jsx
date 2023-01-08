@@ -6,8 +6,8 @@ import { NavBar } from './components/NavBar';
 import { Home } from './pages/Home';
 import { Favs } from './pages/Favs';
 import { User } from './pages/User';
-import { NotRegisteredUser } from './pages/NotRegisteredUser';
 import { Detail } from './pages/Detail';
+import { ProtectedRoute } from './containers/ProtectedRoute';
 
 export const App = () => {
   const isUserLogged = false;
@@ -21,11 +21,19 @@ export const App = () => {
         <Route path="/detail/:detailId" element={<Detail />} />
         <Route
           path="/favs"
-          element={isUserLogged ? <Favs /> : <NotRegisteredUser />}
+          element={
+            <ProtectedRoute>
+              <Favs />
+            </ProtectedRoute>
+          }
         />
         <Route
           path="/user"
-          element={isUserLogged ? <User /> : <NotRegisteredUser />}
+          element={
+            <ProtectedRoute>
+              <User />
+            </ProtectedRoute>
+          }
         />
       </Routes>
       <NavBar />
