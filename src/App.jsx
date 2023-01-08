@@ -10,7 +10,6 @@ import { Detail } from './pages/Detail';
 import { ProtectedRoute } from './containers/ProtectedRoute';
 
 export const App = () => {
-  const isUserLogged = false;
   return (
     <BrowserRouter>
       <GlobalStyle />
