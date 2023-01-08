@@ -1,8 +1,8 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { GlobalStyle } from './styles/GlobalStyles';
 import { Logo } from './components/Logo';
-import { ListOfCategories } from './components/ListOfCategories';
-import { ListOfPhotoCards } from './components/ListOfPhotoCards';
+import { Home } from './pages/Home';
 import { PhotoCardWithQuery } from './containers/PhotoCardWithQuery';
 
 export const App = () => {
@@ -16,10 +16,12 @@ export const App = () => {
       {detailId ? (
         <PhotoCardWithQuery id={detailId} />
       ) : (
-        <>
-          <ListOfCategories />
-          <ListOfPhotoCards categoryId={1} />
-        </>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/pet/:id" element={<Home />} />
+          </Routes>
+        </BrowserRouter>
       )}
     </div>
   );
