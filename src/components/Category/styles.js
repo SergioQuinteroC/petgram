@@ -1,8 +1,8 @@
-import { Link } from 'react-router-dom';
+import { Link as LinkRouter } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 import { skeletonStyle } from '../../styles/skeleton';
 
-export const Anchor = styled(Link)`
+export const Link = styled(LinkRouter)`
   display: flex;
   flex-direction: column;
   text-align: center;
