@@ -8,7 +8,6 @@ export const PhotoCardWithQuery = ({ id }) => {
 
   return (
     <>
-      <a href="/">BACK</a>
       {error && <div>Error</div>}
       {loading && <PhotoCardSkeleton />}
       <PhotoCard {...photo} />
