@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { useInputValue } from '../../hooks/useInputValue';
-import { Button, Error, Form, Input, Title } from './styles';
+import { SubmitButton } from '../SubmitButton';
+import { Error, Form, Input, Title } from './styles';
 
 export const UserForm = ({ error, disabled, onSubmit, title }) => {
   const form = useRef(null);
@@ -42,9 +43,13 @@ export const UserForm = ({ error, disabled, onSubmit, title }) => {
           name="password"
           {...password}
         />
-        <Button disabled={disabled} type="submit" onClick={() => console.log()}>
+        <SubmitButton
+          disabled={disabled}
+          type="submit"
+          onClick={() => console.log()}
+        >
           {title}
-        </Button>
+        </SubmitButton>
       </Form>
       {error && <Error>{error}</Error>}
     </>

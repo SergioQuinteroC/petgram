@@ -12,9 +12,15 @@ export const AppProvider = ({ children }) => {
     window.sessionStorage.setItem('token', token);
   };
 
+  const removeAuth = () => {
+    setIsAuth(false);
+    window.sessionStorage.removeItem('token');
+  };
+
   const value = {
     isAuth,
     activateAuth,
+    removeAuth
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

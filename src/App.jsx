@@ -7,6 +7,7 @@ import { Home } from './pages/Home';
 import { Favs } from './pages/Favs';
 import { User } from './pages/User';
 import { Detail } from './pages/Detail';
+import { NotFound } from './pages/NotFound';
 import { ProtectedRoute } from './containers/ProtectedRoute';
 
 export const App = () => {
@@ -34,6 +35,7 @@ export const App = () => {
             </ProtectedRoute>
           }
         />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <NavBar />
     </BrowserRouter>
