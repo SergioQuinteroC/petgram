@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import {
   ImgWrapper,
   Img,
@@ -50,4 +51,20 @@ export const PhotoCardSkeleton = () => {
       <ButtonSkeleton />
     </Article>
   );
+};
+
+PhotoCard.propTypes = {
+  id: PropTypes.string.isRequired,
+  liked: PropTypes.bool.isRequired,
+  src: PropTypes.string.isRequired,
+  likes: function (props, propName, componentName) {
+    const propValue = props[propName];
+
+    if (propValue === undefined) {
+      return new Error(`${propName} value must be defined`);
+    }
+    if (propValue < 0) {
+      return new Error(`${propName} value must be greater than 0`);
+    }
+  },
 };
